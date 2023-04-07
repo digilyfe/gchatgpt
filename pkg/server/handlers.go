@@ -42,7 +42,7 @@ func (app *App) HandleGChat(w http.ResponseWriter, r *http.Request) {
 
 	// If the message type is not a message, ignore it.
 	if message.Type != "MESSAGE" {
-		response := gchat.Response{Text: "Sorry, I didn't understand your message."}
+		response := gchat.Response{Text: fmt.Printf("Sorry, I didn't understand your message (type: %s and not MESSAGE).", message.Type)}
 		json.NewEncoder(w).Encode(response)
 		return
 	}
